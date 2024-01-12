@@ -21,20 +21,20 @@ export const Container = styled.div`
 `;
 export const Avatar = styled.div`
   position: relative;
-  margin: -9rem auto 3.2rem;
+  margin: -6.4rem auto 3.2rem;
 
-  width: 18.6rem;
-  height: 18.6rem;
+  width: 12.6rem;
+  height: 12.6rem;
 
   > img {
-    width: 18.6rem;
-    height: 18.6rem;
+    width: 12.6rem;
+    height: 12.6rem;
     border-radius: 50%;
   }
 
   > label {
-    width: 4.8rem;
-    height: 4.8rem;
+    width: 3rem;
+    height: 3rem;
 
     background-color: ${({ theme }) => theme.COLORS.BLUE_200};
     border-radius: 50%;
@@ -44,8 +44,8 @@ export const Avatar = styled.div`
     justify-content: center;
 
     position: absolute;
-    bottom: 0.7rem;
-    right: 0.7rem;
+    bottom: 0.4rem;
+    right: 0.4rem;
 
     cursor: pointer;
 
@@ -54,8 +54,8 @@ export const Avatar = styled.div`
     }
 
     svg {
-      width: 2rem;
-      height: 2rem;
+      width: 1.8rem;
+      height: 1.8rem;
 
       color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
     }
