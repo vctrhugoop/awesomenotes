@@ -79,6 +79,16 @@ export const Content = styled.div`
   padding: 0 2rem;
   overflow-y: auto;
 
+  &::-webkit-scrollbar {
+    width: 1.3rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.COLORS.GRAY_300};
+    border-radius: 2rem;
+    border: 3px solid ${({ theme }) => theme.COLORS.BACKGROUND_800};
+  }
+
   @media screen and (min-width: 1024px) {
     padding: 0 8.4rem;
   }

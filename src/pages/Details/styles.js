@@ -14,6 +14,16 @@ export const Container = styled.div`
     grid-area: content;
     overflow-y: auto;
     padding: 2.8rem 0;
+
+    &::-webkit-scrollbar {
+      width: 1.3rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => theme.COLORS.GRAY_300};
+      border-radius: 2rem;
+      border: 3px solid ${({ theme }) => theme.COLORS.BACKGROUND_800};
+    }
   }
 `;
 

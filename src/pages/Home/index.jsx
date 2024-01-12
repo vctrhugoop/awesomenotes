@@ -22,6 +22,12 @@ export function Home() {
         <li>
           <ButtonText title="Exemplo 1" />
         </li>
+        <li>
+          <ButtonText title="Exemplo 2" />
+        </li>
+        <li>
+          <ButtonText title="Exemplo 3" />
+        </li>
       </Menu>
       <Search>
         <Input placeholder="Pesquisar pelo título" icon={FiSearch} />
@@ -32,6 +38,18 @@ export function Home() {
             data={{
               title: 'Exemplo 1',
               tags: [{ id: '1', name: 'exemplo 1' }],
+            }}
+          />
+          <Note
+            data={{
+              title: 'Exemplo 2',
+              tags: [{ id: '2', name: 'exemplo 2' }],
+            }}
+          />
+          <Note
+            data={{
+              title: 'Exemplo 3',
+              tags: [{ id: '3', name: 'exemplo 3' }],
             }}
           />
         </Section>
