@@ -64,7 +64,7 @@ export const Avatar = styled.div`
 
 export const Form = styled.form`
   max-width: 34rem;
-  margin: 3rem auto 0;
+  margin: 3rem auto;
 
   > div:nth-child(3) {
     margin-top: 2.4rem;
