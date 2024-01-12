@@ -17,6 +17,16 @@ export default createGlobalStyle`
 
     font-size: 1.6rem;
     -webkit-font-smoothing: antialiased;
+
+    &::-webkit-scrollbar {
+      width: 1.3rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => theme.COLORS.GRAY_300};
+      border-radius: 2rem;
+      border: 3px solid ${({ theme }) => theme.COLORS.BACKGROUND_800};
+    }
   }
 
   body, input, button, textarea {
@@ -36,4 +46,6 @@ export default createGlobalStyle`
   button:hover, a:hover {
     filter: brightness(0.9)
   }
+
+
 `;
