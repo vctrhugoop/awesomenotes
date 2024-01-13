@@ -37,7 +37,7 @@ export const Container = styled.div`
     $isvisible &&
     css`
       transform: translateX(0);
-      overflow-x: hidden;
+      overflow: hidden;
     `}
 `;
 
