@@ -1,7 +1,7 @@
 import { RiLogoutBoxRLine, RiMenuFill } from 'react-icons/ri';
 import { Container, Profile, Logout } from './styles';
 
-export function Header() {
+export function Header({ setMenuIsVisible }) {
   return (
     <Container>
       <Profile to="/profile">
@@ -13,7 +13,7 @@ export function Header() {
       </Profile>
       <Logout>
         <button className="menu">
-          <RiMenuFill />
+          <RiMenuFill onClick={() => setMenuIsVisible(true)} />
         </button>
         <button className="logout">
           <RiLogoutBoxRLine />
