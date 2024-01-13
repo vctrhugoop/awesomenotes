@@ -8,6 +8,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
+  overflow: hidden;
+
   @media screen and (min-width: 1024px) {
     display: grid;
     grid-template-columns: 25rem auto;
