@@ -1,6 +1,8 @@
 import { FiMail, FiLock, FiUser, FiArrowLeft } from 'react-icons/fi';
 import { Container, Wrapper, Form, Background } from './styles';
 
+import { Link } from 'react-router-dom';
+
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { ButtonText } from '../../components/ButtonText';
@@ -19,7 +21,13 @@ export function SignUp() {
           <Input placeholder="Senha" type="password" icon={FiLock} />
           <Button title="Cadastrar" />
           <span>
-            <ButtonText title="Volte para login" isActive icon={FiArrowLeft} />
+            <Link to="/">
+              <ButtonText
+                title="Volte para login"
+                isActive
+                icon={FiArrowLeft}
+              />
+            </Link>
           </span>
         </Form>
       </Wrapper>

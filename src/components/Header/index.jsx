@@ -4,7 +4,7 @@ import { Container, Profile, Logout } from './styles';
 export function Header() {
   return (
     <Container>
-      <Profile>
+      <Profile to="/profile">
         <img src="https://github.com/vctrhugoop.png" alt="User photo" />
         <div>
           <span>Bem-vindo</span>

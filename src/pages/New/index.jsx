@@ -1,5 +1,6 @@
 import { FiArrowLeft } from 'react-icons/fi';
 import { Container, Form } from './styles';
+import { Link } from 'react-router-dom';
 
 import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';
@@ -17,9 +18,9 @@ export function New() {
         <Form>
           <header>
             <h1>Criar Nota</h1>
-            <a href="/">
+            <Link to="/">
               <ButtonText title="Voltar" icon={FiArrowLeft} />
-            </a>
+            </Link>
           </header>
           <Input placeholder="Título" />
           <Textarea placeholder="Observações" />
