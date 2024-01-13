@@ -39,7 +39,9 @@ export function Details() {
             <Tag title="Foco" />
             <Tag title="Agil" />
           </Section>
-          <Button title="Voltar" />
+          <a href="/">
+            <Button title="Voltar" />
+          </a>
         </Content>
       </main>
     </Container>
