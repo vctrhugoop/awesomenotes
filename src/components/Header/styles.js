@@ -50,18 +50,43 @@ export const Profile = styled(Link)`
   }
 `;
 
-export const Logout = styled.button`
+export const Logout = styled.div`
   border: none;
   background: none;
-  display: flex;
 
+  display: flex;
   align-items: center;
   justify-content: center;
 
   color: ${({ theme }) => theme.COLORS.GRAY_100};
 
-  > svg {
-    font-size: 2rem;
-    margin-right: 0.5rem;
+  .menu,
+  .logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+
+    > svg {
+      font-size: 2.4rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .menu {
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .logout {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: flex;
+    }
   }
 `;

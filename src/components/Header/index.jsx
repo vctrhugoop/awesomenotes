@@ -12,9 +12,13 @@ export function Header() {
         </div>
       </Profile>
       <Logout>
-        <RiMenuFill />
-        <RiLogoutBoxRLine />
-        <span>Sair</span>
+        <button className="menu">
+          <RiMenuFill />
+        </button>
+        <button className="logout">
+          <RiLogoutBoxRLine />
+          <span>Sair</span>
+        </button>
       </Logout>
     </Container>
   );
