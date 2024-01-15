@@ -27,9 +27,9 @@ export const Container = styled.div`
   }
 
   .tags {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
   }
 `;
 

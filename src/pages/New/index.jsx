@@ -33,6 +33,8 @@ export function New() {
           <Section title="Marcadores">
             <div className="tags">
               <NoteItem value="Exemplo 1" />
+              <NoteItem value="Exemplo 2" />
+              <NoteItem value="Exemplo 3" />
               <NoteItem isNew placeholder="Novo marcador" />
             </div>
           </Section>
