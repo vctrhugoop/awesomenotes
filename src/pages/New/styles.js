@@ -29,7 +29,7 @@ export const Container = styled.div`
   .tags {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
+    column-gap: 0.8rem;
   }
 `;
 
