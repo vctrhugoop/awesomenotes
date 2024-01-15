@@ -1,4 +1,6 @@
 import { FiArrowLeft } from 'react-icons/fi';
+import { FaLink, FaTags } from 'react-icons/fa';
+
 import { Container, Form } from './styles';
 import { Link } from 'react-router-dom';
 
@@ -25,12 +27,12 @@ export function New() {
           <Input placeholder="Título" />
           <Textarea placeholder="Observações" />
 
-          <Section title="Links úteis">
+          <Section icon={FaLink} title="Links úteis">
             <NoteItem value="Exemplo 1" />
             <NoteItem isNew placeholder="Novo Link" />
           </Section>
 
-          <Section title="Marcadores">
+          <Section icon={FaTags} title="Marcadores">
             <div className="tags">
               <NoteItem value="Exemplo 1" />
               <NoteItem value="Exemplo 2" />

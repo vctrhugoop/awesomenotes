@@ -1,5 +1,7 @@
-import { Container, Links, Content } from './styles';
 import { PiTrashBold } from 'react-icons/pi';
+import { FaLink, FaTags } from 'react-icons/fa';
+
+import { Container, Links, Content } from './styles';
 
 import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
@@ -22,7 +24,7 @@ export function Details() {
             incidunt officia quos, quis veritatis rerum ratione magni eum error
             numquam sapiente beatae sunt!
           </p>
-          <Section title="Links úteis">
+          <Section icon={FaLink} title="Links úteis">
             <Links>
               <li>
                 <a
@@ -35,7 +37,7 @@ export function Details() {
               </li>
             </Links>
           </Section>
-          <Section title="Marcadores">
+          <Section icon={FaTags} title="Marcadores">
             <Tag title="Foco" />
             <Tag title="Agil" />
           </Section>

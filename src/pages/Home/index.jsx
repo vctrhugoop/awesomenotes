@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { FiPlus, FiSearch } from 'react-icons/fi';
+import { FaStickyNote } from 'react-icons/fa';
 
 import { Container, Brand, Menu, Search, Content, NewNote } from './styles';
 
@@ -43,7 +44,7 @@ export function Home() {
           <Input placeholder="Pesquisar pelo título" icon={FiSearch} />
         </Search>
         <Content>
-          <Section title="Minhas Notas">
+          <Section icon={FaStickyNote} title="Minhas Notas">
             <Note
               data={{
                 title: 'Exemplo 1',
