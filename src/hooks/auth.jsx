@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 import api from '../services/api';
 
@@ -12,6 +12,9 @@ function AuthProvider({ children }) {
       const response = await api.post('/sessions', { email, password });
       const { user, token } = response.data;
 
+      localStorage.setItem('@awesomentes:user', JSON.stringify(user));
+      localStorage.setItem('@awesomentes:token', token);
+
       api.defaults.headers.authorization = `Bearer ${token}`;
       setData({ user, token });
     } catch (error) {
@@ -22,6 +25,17 @@ function AuthProvider({ children }) {
       }
     }
   }
+
+  useEffect(() => {
+    const token = localStorage.getItem('@awesomentes:token');
+    const user = localStorage.getItem('@awesomentes:user');
+
+    if (token && user) {
+      api.defaults.headers.authorization = `Bearer ${token}`;
+
+      setData({ user: JSON.parse(user), token });
+    }
+  }, []);
 
   return (
     <AuthContext.Provider value={{ signIn, user: data.user }}>
@@ -36,4 +50,5 @@ function useAuth() {
   return context;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { AuthProvider, useAuth };
