@@ -44,6 +44,7 @@ export const Form = styled.form`
     margin-top: 8rem;
 
     display: flex;
+    align-items: center;
     gap: 0.5rem;
   }
 `;
