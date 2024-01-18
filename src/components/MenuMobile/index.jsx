@@ -1,10 +1,9 @@
-import { FiX, FiPlus } from 'react-icons/fi';
-import { Container, Brand, Menu, NewNotes } from './styles';
+import { FiX, FiPlus, FiLogIn } from 'react-icons/fi';
+import { Container, Brand, Menu, Logout, NewNotes } from './styles';
 
 import { ButtonText } from '../../components/ButtonText';
 
 export function MenuMobile({ menuIsVisible, setMenuIsVisible }) {
-  console.log(menuIsVisible);
   return (
     <Container $isvisible={menuIsVisible}>
       <FiX size={30} onClick={() => setMenuIsVisible(false)} />
@@ -25,6 +24,13 @@ export function MenuMobile({ menuIsVisible, setMenuIsVisible }) {
           <ButtonText title="Exemplo 3" />
         </li>
       </Menu>
+      <Logout>
+        <button className="logout">
+          <FiLogIn />
+          <span>Sair</span>
+        </button>
+      </Logout>
+
       <NewNotes to="/new">
         <FiPlus />
         Criar nota

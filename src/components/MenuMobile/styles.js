@@ -17,8 +17,8 @@ export const Container = styled.div`
     'brand'
     'menu '
     'menu '
+    'logout'
     'newnote ';
-  justify-items: center;
 
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
@@ -44,7 +44,7 @@ export const Container = styled.div`
 export const Brand = styled.div`
   grid-area: brand;
   align-self: center;
-  justify-items: end;
+  justify-self: center;
 
   padding: 2rem;
 
@@ -56,12 +56,32 @@ export const Brand = styled.div`
 
 export const Menu = styled.ul`
   grid-area: menu;
-  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
   > li {
     list-style: none;
     margin-bottom: 2.4rem;
+    text-align: center;
+  }
+`;
+
+export const Logout = styled.div`
+  grid-area: logout;
+  align-self: center;
+  justify-self: center;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+
+  > button {
+    background: none;
+    border: none;
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 `;
 
