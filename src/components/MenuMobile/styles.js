@@ -12,7 +12,7 @@ export const Container = styled.div`
   z-index: 5;
 
   display: grid;
-  grid-template-rows: 10.5rem 12.8rem auto 6.4rem;
+  grid-template-rows: fit-contant;
   grid-template-areas:
     'brand'
     'menu '
