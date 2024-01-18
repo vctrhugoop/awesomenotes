@@ -1,9 +1,12 @@
 import { FiX, FiPlus, FiLogIn } from 'react-icons/fi';
 import { Container, Brand, Menu, Logout, NewNotes } from './styles';
 
+import { useAuth } from '../../hooks/auth';
+
 import { ButtonText } from '../../components/ButtonText';
 
 export function MenuMobile({ menuIsVisible, setMenuIsVisible }) {
+  const { signOut } = useAuth();
   return (
     <Container $isvisible={menuIsVisible}>
       <FiX size={30} onClick={() => setMenuIsVisible(false)} />
@@ -25,7 +28,7 @@ export function MenuMobile({ menuIsVisible, setMenuIsVisible }) {
         </li>
       </Menu>
       <Logout>
-        <button className="logout">
+        <button className="logout" onClick={signOut}>
           <FiLogIn />
           <span>Sair</span>
         </button>

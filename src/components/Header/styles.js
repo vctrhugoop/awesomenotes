@@ -50,7 +50,7 @@ export const Profile = styled(Link)`
   }
 `;
 
-export const Logout = styled.div`
+export const Buttons = styled.div`
   border: none;
   background: none;
 
