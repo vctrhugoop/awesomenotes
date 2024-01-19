@@ -28,6 +28,7 @@ export const Profile = styled(Link)`
   color: ${({ theme }) => theme.COLORS.WHITE};
 
   > img {
+    object-fit: cover;
     width: 5.6rem;
     height: 5.6rem;
     border-radius: 50%;
