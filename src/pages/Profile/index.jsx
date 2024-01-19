@@ -11,12 +11,23 @@ import { Container, Form, Avatar } from './styles';
 
 import { useAuth } from '../../hooks/auth';
 
+import avatarPlaceholder from '../../assets/user_avatar_placeholder.svg';
+
+import api from '../../services/api';
+
 export function Profile() {
   const { user, updateProfile } = useAuth();
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [passwordOld, setPasswordOld] = useState();
   const [passwordNew, setPasswordNew] = useState();
+
+  const avatarUrl = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder;
+  // eslint-disable-next-line no-unused-vars
+  const [userAvatar, setAvatar] = useState(user.avatar);
+  const [avatarFile, setAvatarFile] = useState(null);
 
   async function handleUpdate() {
     const user = {
@@ -25,7 +36,15 @@ export function Profile() {
       password: passwordNew,
       old_password: passwordOld,
     };
-    await updateProfile({ user });
+    await updateProfile({ user, avatarFile });
+  }
+
+  function handleChangeAvatar(event) {
+    const file = event.target.files[0];
+    setAvatarFile(file);
+
+    const imagePreview = URL.createObjectURL(file);
+    setAvatar(imagePreview);
   }
 
   return (
@@ -36,10 +55,10 @@ export function Profile() {
         </Link>
       </header>
       <Avatar>
-        <img src="https://github.com/vctrhugoop.png" alt="Foto do usuario" />
+        <img src={avatarUrl} alt="Foto do usuario" />
         <label htmlFor="avatar">
           <FiCamera />
-          <input id="avatar" type="file" />
+          <input id="avatar" type="file" onChange={handleChangeAvatar} />
         </label>
       </Avatar>
       <Form>
