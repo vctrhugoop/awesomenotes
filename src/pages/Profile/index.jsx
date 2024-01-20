@@ -27,17 +27,20 @@ export function Profile() {
     : avatarPlaceholder;
 
   // eslint-disable-next-line no-unused-vars
-  const [avatar, setAvatar] = useState(user.avatar);
+  const [avatar, setAvatar] = useState(avatarUrl);
   const [avatarFile, setAvatarFile] = useState(null);
 
   async function handleUpdate() {
-    const user = {
+    const updated = {
       name,
       email,
       password: passwordNew,
       old_password: passwordOld,
     };
-    await updateProfile({ user, avatarFile });
+
+    const userUpdated = Object.assign(user, updated);
+
+    await updateProfile({ user: userUpdated, avatarFile });
   }
 
   function handleChangeAvatar(event) {
@@ -60,7 +63,7 @@ export function Profile() {
         <ButtonText title="Voltar" icon={FiArrowLeft} onClick={handleBack} />
       </header>
       <Avatar>
-        <img src={avatarUrl} alt="Foto do usuario" />
+        <img src={avatar} alt="Foto do usuario" />
         <label htmlFor="avatar">
           <FiCamera />
           <input id="avatar" type="file" onChange={handleChangeAvatar} />
