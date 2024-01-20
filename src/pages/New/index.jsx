@@ -29,6 +29,17 @@ export function New() {
   const navitage = useNavigate();
 
   async function handleNewNote() {
+    if (!title) {
+      return alert('Digite um título da nota');
+    }
+
+    if (newLink) {
+      return alert('Adicione o link');
+    }
+    if (newTag) {
+      return alert('Adicione a tag');
+    }
+
     await api.post('/notes', {
       title,
       description,
