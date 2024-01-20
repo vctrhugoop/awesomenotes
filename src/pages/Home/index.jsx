@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { FiPlus, FiSearch } from 'react-icons/fi';
 import { FaStickyNote } from 'react-icons/fa';
@@ -11,9 +11,19 @@ import { Note } from '../../components/Note';
 import { Section } from '../../components/Section';
 import { ButtonText } from '../../components/ButtonText';
 import { MenuMobile } from '../../components/MenuMobile';
+import api from '../../services/api';
 
 export function Home() {
   const [menuIsVisible, setMenuIsVisible] = useState(false);
+  const [tags, setTags] = useState([]);
+
+  useEffect(() => {
+    async function fatchTags() {
+      const response = await api.get('/tags');
+      setTags(response.data);
+    }
+    fatchTags();
+  }, []);
 
   return (
     <>
@@ -30,15 +40,12 @@ export function Home() {
           <li>
             <ButtonText title="Todos" isActive />
           </li>
-          <li>
-            <ButtonText title="Exemplo 1" />
-          </li>
-          <li>
-            <ButtonText title="Exemplo 2" />
-          </li>
-          <li>
-            <ButtonText title="Exemplo 3" />
-          </li>
+          {tags &&
+            tags.map(tag => (
+              <li key={String(tag.id)}>
+                <ButtonText title={tag.name} />
+              </li>
+            ))}
         </Menu>
         <Search>
           <Input placeholder="Pesquisar pelo título" icon={FiSearch} />
