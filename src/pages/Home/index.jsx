@@ -14,9 +14,11 @@ import { MenuMobile } from '../../components/MenuMobile';
 import api from '../../services/api';
 
 export function Home() {
+  const [search, setSearch] = useState([]);
   const [menuIsVisible, setMenuIsVisible] = useState(false);
   const [tags, setTags] = useState([]);
   const [tagsSelected, setTagSelected] = useState([]);
+  const [notes, setNotes] = useState([]);
 
   function handleTagSelected(tagName) {
     const alreadySelected = tagsSelected.includes(tagName);
@@ -35,6 +37,16 @@ export function Home() {
     }
     fatchTags();
   }, []);
+
+  useEffect(() => {
+    async function fatchNotes() {
+      const response = await api.get(
+        `/notes?title=${search}&tags=${tagsSelected}`
+      );
+      setNotes(response.data);
+    }
+    fatchNotes();
+  }, [tagsSelected, search]);
 
   return (
     <>
@@ -67,28 +79,17 @@ export function Home() {
             ))}
         </Menu>
         <Search>
-          <Input placeholder="Pesquisar pelo título" icon={FiSearch} />
+          <Input
+            placeholder="Pesquisar pelo título"
+            icon={FiSearch}
+            onChange={e => setSearch(e.target.value)}
+          />
         </Search>
         <Content>
           <Section icon={FaStickyNote} title="Minhas Notas">
-            <Note
-              data={{
-                title: 'Exemplo 1',
-                tags: [{ id: '1', name: 'exemplo 1' }],
-              }}
-            />
-            <Note
-              data={{
-                title: 'Exemplo 2',
-                tags: [{ id: '2', name: 'exemplo 2' }],
-              }}
-            />
-            <Note
-              data={{
-                title: 'Exemplo 3',
-                tags: [{ id: '3', name: 'exemplo 3' }],
-              }}
-            />
+            {notes.map(note => (
+              <Note key={String(note.id)} data={note} />
+            ))}
           </Section>
         </Content>
         <NewNote to="/new">
