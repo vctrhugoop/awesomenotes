@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { PiTrashBold } from 'react-icons/pi';
 import { FaLink, FaTags } from 'react-icons/fa';
@@ -19,6 +19,21 @@ export function Details() {
 
   const params = useParams();
 
+  const navitage = useNavigate();
+
+  function handleBack() {
+    navitage(-1);
+  }
+
+  async function handleRemove() {
+    const confirm = window.confirm('Deseja realemnte remover a nota?');
+
+    if (confirm) {
+      await api.delete(`/notes/${params.id}`);
+      navitage(-1);
+    }
+  }
+
   useEffect(() => {
     async function fetchNotes() {
       const response = await api.get(`/notes/${params.id}`);
@@ -31,11 +46,15 @@ export function Details() {
   return (
     <Container>
       <Header />
-
       {data && (
         <main>
           <Content>
-            <ButtonText title="Excluir nota" isActive icon={PiTrashBold} />
+            <ButtonText
+              title="Excluir nota"
+              isActive
+              icon={PiTrashBold}
+              onClick={handleRemove}
+            />
             <h1>{data.title}</h1>
             <p>{data.description}</p>
             {data.links && (
@@ -58,9 +77,7 @@ export function Details() {
                 ))}
               </Section>
             )}
-            <a href="/">
-              <Button title="Voltar" />
-            </a>
+            <Button title="Voltar" onClick={handleBack} />
           </Content>
         </main>
       )}

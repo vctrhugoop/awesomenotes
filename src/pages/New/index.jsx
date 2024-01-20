@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { FiArrowLeft } from 'react-icons/fi';
 import { FaLink, FaTags } from 'react-icons/fa';
@@ -48,7 +48,7 @@ export function New() {
     });
 
     alert('Nota criada com sucesso!');
-    navitage('/');
+    navitage(-1);
   }
 
   function handleAddLink() {
@@ -70,6 +70,10 @@ export function New() {
     setTags(prevState => prevState.filter(tag => tag !== deleted));
   }
 
+  function handleBack() {
+    navitage(-1);
+  }
+
   return (
     <Container>
       <Header />
@@ -77,9 +81,11 @@ export function New() {
         <Form>
           <header>
             <h1>Criar Nota</h1>
-            <Link to="/">
-              <ButtonText title="Voltar" icon={FiArrowLeft} />
-            </Link>
+            <ButtonText
+              title="Voltar"
+              icon={FiArrowLeft}
+              onClick={handleBack}
+            />
           </header>
           <Input
             placeholder="Título"

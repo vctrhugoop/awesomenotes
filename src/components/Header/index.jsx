@@ -1,6 +1,8 @@
 import { FiLogIn, FiMenu } from 'react-icons/fi';
 import { Container, Profile, Buttons } from './styles';
 
+import { useNavigate } from 'react-router-dom';
+
 import { useAuth } from '../../hooks/auth';
 
 import avatarPlaceholder from '../../assets/user_avatar_placeholder.svg';
@@ -12,6 +14,14 @@ export function Header({ setMenuIsVisible }) {
   const avatarUrl = user.avatar
     ? `${api.defaults.baseURL}/files/${user.avatar}`
     : avatarPlaceholder;
+
+  const navitage = useNavigate();
+
+  function logOut() {
+    signOut();
+    navitage('/');
+  }
+
   return (
     <Container>
       <Profile to="/profile">
@@ -25,7 +35,7 @@ export function Header({ setMenuIsVisible }) {
         <button className="menu">
           <FiMenu onClick={() => setMenuIsVisible(true)} />
         </button>
-        <button className="logout" onClick={signOut}>
+        <button className="logout" onClick={logOut}>
           <FiLogIn />
           <span>Sair</span>
         </button>

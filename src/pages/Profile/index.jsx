@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from 'react-icons/fi';
 
@@ -48,12 +48,16 @@ export function Profile() {
     setAvatar(imagePreview);
   }
 
+  const navitage = useNavigate();
+
+  function handleBack() {
+    navitage(-1);
+  }
+
   return (
     <Container>
       <header>
-        <Link to="/">
-          <ButtonText title="Voltar" icon={FiArrowLeft} />
-        </Link>
+        <ButtonText title="Voltar" icon={FiArrowLeft} onClick={handleBack} />
       </header>
       <Avatar>
         <img src={avatarUrl} alt="Foto do usuario" />
