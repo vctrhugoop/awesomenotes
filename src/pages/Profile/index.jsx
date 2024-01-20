@@ -25,8 +25,9 @@ export function Profile() {
   const avatarUrl = user.avatar
     ? `${api.defaults.baseURL}/files/${user.avatar}`
     : avatarPlaceholder;
+
   // eslint-disable-next-line no-unused-vars
-  const [userAvatar, setAvatar] = useState(user.avatar);
+  const [avatar, setAvatar] = useState(user.avatar);
   const [avatarFile, setAvatarFile] = useState(null);
 
   async function handleUpdate() {
