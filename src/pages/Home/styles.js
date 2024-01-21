@@ -54,6 +54,12 @@ export const Menu = styled.ul`
   padding-top: 6.4rem;
   text-align: center;
 
+  > h3 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 4.8rem;
+  }
+
   > li {
     list-style: none;
     margin-bottom: 2.4rem;

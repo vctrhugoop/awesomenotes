@@ -11,13 +11,11 @@ import { Input } from '../../components/Input';
 import { Note } from '../../components/Note';
 import { Section } from '../../components/Section';
 import { ButtonText } from '../../components/ButtonText';
-import { MenuMobile } from '../../components/MenuMobile';
 
 import api from '../../services/api';
 
 export function Home() {
   const [search, setSearch] = useState([]);
-  const [menuIsVisible, setMenuIsVisible] = useState(false);
   const [tags, setTags] = useState([]);
   const [tagsSelected, setTagSelected] = useState([]);
   const [notes, setNotes] = useState([]);
@@ -62,16 +60,13 @@ export function Home() {
 
   return (
     <>
-      <MenuMobile
-        menuIsVisible={menuIsVisible}
-        setMenuIsVisible={setMenuIsVisible}
-      />
       <Container>
         <Brand>
           <h1>AwesomeNotes</h1>
         </Brand>
-        <Header setMenuIsVisible={setMenuIsVisible} />
+        <Header />
         <Menu>
+          <h3>Filtrar por tags</h3>
           <li>
             <ButtonText
               title="Todos"

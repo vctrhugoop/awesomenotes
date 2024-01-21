@@ -61,7 +61,6 @@ export const Buttons = styled.div`
 
   color: ${({ theme }) => theme.COLORS.GRAY_100};
 
-  .menu,
   .logout {
     display: flex;
     align-items: center;
@@ -74,20 +73,6 @@ export const Buttons = styled.div`
     > svg {
       font-size: 2.4rem;
       margin-right: 0.5rem;
-    }
-  }
-
-  .menu {
-    @media screen and (min-width: 1024px) {
-      display: none;
-    }
-  }
-
-  .logout {
-    display: none;
-
-    @media screen and (min-width: 1024px) {
-      display: flex;
     }
   }
 `;
