@@ -71,7 +71,7 @@ export function Details() {
               </Section>
             )}
             {data.tags && (
-              <Section icon={FaTags} title="Marcadores">
+              <Section icon={FaTags} title="Marcadores" page="details">
                 {data.tags.map(tag => (
                   <Tag key={String(tag.id)} title={tag.name} />
                 ))}

@@ -93,7 +93,7 @@ export function Home() {
           />
         </Search>
         <Content>
-          <Section icon={FaStickyNote} title="Minhas Notas">
+          <Section icon={FaStickyNote} title="Minhas Notas" page="home">
             {notes.map(note => (
               <Note
                 key={String(note.id)}

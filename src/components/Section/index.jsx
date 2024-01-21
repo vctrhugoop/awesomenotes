@@ -1,12 +1,12 @@
 import { Container } from './styles';
 
-export function Section({ title, icon: Icon, children }) {
+export function Section({ title, icon: Icon, children, page }) {
   return (
     <Container>
       <h2>
         {Icon && <Icon size={20} />} {title}
       </h2>
-      {children}
+      <div className={page}>{children}</div>
     </Container>
   );
 }

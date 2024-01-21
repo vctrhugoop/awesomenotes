@@ -19,4 +19,12 @@ export const Container = styled.section`
     align-items: center;
     gap: 0.5rem;
   }
+
+  .home {
+    @media screen and (min-width: 1440px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 1.6rem;
+    }
+  }
 `;
