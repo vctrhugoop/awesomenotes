@@ -57,7 +57,7 @@ export function New() {
   }
 
   function handleDeleteLink(deleted) {
-    setLinks(prevState => prevState.filter(link => link !== deleted));
+    setLinks(prevState => prevState.filter((link, index) => index !== deleted));
   }
 
   function handleAddTag() {
@@ -67,7 +67,7 @@ export function New() {
   }
 
   function handleDeleteTag(deleted) {
-    setTags(prevState => prevState.filter(tag => tag !== deleted));
+    setTags(prevState => prevState.filter((tag, index) => index !== deleted));
   }
 
   function handleBack() {
@@ -102,7 +102,7 @@ export function New() {
               <NoteItem
                 key={String(index)}
                 value={link}
-                onClick={() => handleDeleteLink(link)}
+                onClick={() => handleDeleteLink(index)}
               />
             ))}
             <NoteItem
@@ -121,7 +121,7 @@ export function New() {
                   key={String(index)}
                   value={tag}
                   onClick={() => {
-                    handleDeleteTag(tag);
+                    handleDeleteTag(index);
                   }}
                 />
               ))}
