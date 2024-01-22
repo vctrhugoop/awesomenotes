@@ -88,13 +88,13 @@ export function Profile() {
           placeholder="Senha Atual"
           type="password"
           icon={FiLock}
-          onChange={e => setPasswordNew(e.target.value)}
+          onChange={e => setPasswordOld(e.target.value)}
         />
         <Input
           placeholder="Nova senha"
           type="password"
           icon={FiLock}
-          onChange={e => setPasswordOld(e.target.value)}
+          onChange={e => setPasswordNew(e.target.value)}
         />
         <Button title="Salvar" onClick={handleUpdate} />
       </Form>
