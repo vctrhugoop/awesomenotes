@@ -10,6 +10,8 @@ export const Container = styled.div`
 
   overflow: hidden;
 
+  position: relative;
+
   @media screen and (min-width: 1024px) {
     display: grid;
     grid-template-columns: 25rem auto;
@@ -104,19 +106,32 @@ export const Content = styled.div`
 `;
 
 export const NewNote = styled(Link)`
-  grid-area: newnote;
+  position: absolute;
+  bottom: 2.4rem;
+  right: 2.4rem;
+
+  padding: 1.4rem;
+  border-radius: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background-color: ${({ theme }) => theme.COLORS.BLUE_200};
   color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
-  display: none;
-  svg {
-    margin-right: 0.8rem;
+  > span {
+    display: none;
   }
 
   @media screen and (min-width: 1024px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    grid-area: newnote;
+    position: static;
+    gap: 0.5rem;
+    border-radius: 0;
+
+    > span {
+      display: block;
+    }
   }
 `;
